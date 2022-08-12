@@ -42,7 +42,6 @@ const Map = ({
             <Select currentTest={questionNumber === index} key={item.id}>
               <TestNum
                 onClick={() => setQuestionNumber(index)}
-                //  isAnswerSelected={test.selectedAnswer}
                 isTrue={item?.status}
               >
                 {index + 1}

@@ -30,7 +30,7 @@ const App = () => {
         <Routes>
           <Route
             exact
-            path="/start"
+            path="/"
             element={
               <Start categories={categories} fetchQuestions={fetchQuestions} />
             }
