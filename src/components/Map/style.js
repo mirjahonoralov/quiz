@@ -8,8 +8,20 @@ export const MapContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+
   a {
     text-decoration: none;
+  }
+
+  p {
+    margin-top: 15px;
+    color: red;
+    font-size: 20px;
+    padding: 0 10px;
+    background: #fff;
+    position: absolute;
+    bottom: -70px;
   }
 `;
 

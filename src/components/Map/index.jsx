@@ -52,6 +52,7 @@ const Map = ({
       <StopTest isFinished={isFinished} onClick={!isFinished && showModal}>
         <InfoCircleOutlined /> Stop the Test
       </StopTest>
+      {isFinished && <p>Test finished</p>}
 
       <Modal
         title={
