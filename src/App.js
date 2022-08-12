@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Quiz from "./components/Quiz";
-import Start from "./components/Start/Start";
+import Start from "./components/Start";
 const BASE_URL = "https://opentdb.com/api.php?";
 
 const App = () => {

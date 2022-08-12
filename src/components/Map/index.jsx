@@ -66,7 +66,6 @@ const Map = ({
           <h2>
             You scored <span>{score}</span> out of {testsAmount}
           </h2>
-          {/* <h3>*Are you sure to stop test</h3> */}
         </Score>
       </Modal>
     </MapContainer>
