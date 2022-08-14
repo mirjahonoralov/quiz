@@ -1,0 +1,42 @@
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  background: coral;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.balls {
+  width: 90px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.balls div {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #303030;
+  transform: translateY(-100%);
+  animation: wave 0.8s ease-in-out alternate infinite;
+}
+
+.balls div:nth-of-type(1) {
+  animation-delay: -0.4s;
+}
+
+.balls div:nth-of-type(2) {
+  animation-delay: -0.2s;
+}
+
+@keyframes wave {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}

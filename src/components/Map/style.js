@@ -23,6 +23,14 @@ export const MapContainer = styled.div`
     position: absolute;
     bottom: -70px;
   }
+
+  @media (max-width: 768px) {
+    margin-top: 30px;
+    p {
+      bottom: 170px;
+      margin-top: 15px;
+    }
+  }
 `;
 
 export const MapContent = styled.div`
@@ -44,7 +52,7 @@ export const MapContent = styled.div`
     background: #888;
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 768px) {
     display: flex;
     flex-wrap: wrap;
   }

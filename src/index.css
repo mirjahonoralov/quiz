@@ -16,6 +16,6 @@
 @media (max-width: 768px) {
   .app {
     height: fit-content;
-    padding-bottom: 60px;
+    /* padding-bottom: 60px; */
   }
 }
