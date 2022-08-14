@@ -3,18 +3,27 @@ import { Select } from "antd";
 import { Container, Section, Top, Wrapper } from "./style";
 import Button from "../Button";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchAsyncCategories,
+  fetchAsyncQuestions,
+} from "../../store/slices/quiz-slice";
 
-const Start = ({ categories, fetchQuestions }) => {
+const Start = () => {
   const { Option } = Select;
+  const dispatch = useDispatch();
+  const categories = useSelector((state) => state.quiz.categories);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [count, setCount] = useState(10);
-  const handleChange = (value) => {
-    setSelectedCategory(value);
-  };
+  const handleChange = (value) => setSelectedCategory(value);
 
   useEffect(() => {
     if (categories.length) setSelectedCategory(categories?.[0]?.id);
   }, [categories]);
+
+  useEffect(() => {
+    dispatch(fetchAsyncCategories());
+  }, [dispatch]);
 
   return (
     <Container>
@@ -59,7 +68,9 @@ const Start = ({ categories, fetchQuestions }) => {
         <Link to="/quiz">
           <Button
             color={"coral"}
-            onClick={() => fetchQuestions(count, selectedCategory)}
+            onClick={() =>
+              dispatch(fetchAsyncQuestions({ count, selectedCategory }))
+            }
           >
             Start
           </Button>

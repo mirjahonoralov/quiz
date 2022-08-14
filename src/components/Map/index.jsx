@@ -10,30 +10,25 @@ import {
 import { InfoCircleOutlined } from "@ant-design/icons";
 import Modal from "antd/lib/modal/Modal";
 import { useState } from "react";
+import { setFinished, setQuestionNumber } from "../../store/slices/quiz-slice";
+import { useDispatch, useSelector } from "react-redux";
 
-const Map = ({
-  questions,
-  questionNumber,
-  setQuestionNumber,
-  testsAmount,
-  score,
-  setIsFinished,
-  isFinished,
-}) => {
+const Map = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const dispatch = useDispatch();
+  const quizState = useSelector((state) => state.quiz);
+  const { questions, questionNumber, score, isFinished } = quizState;
+  const testsAmount = questions.length;
 
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
+  const showModal = () => setIsModalVisible(true);
 
   const handleOk = () => {
     setIsModalVisible(false);
-    setIsFinished(true);
+    dispatch(setFinished());
   };
 
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
+  const handleCancel = () => setIsModalVisible(false);
+
   return (
     <MapContainer>
       <MapContent padding={testsAmount > 20}>
@@ -41,7 +36,7 @@ const Map = ({
           questions.map((item, index) => (
             <Select currentTest={questionNumber === index} key={item.id}>
               <TestNum
-                onClick={() => setQuestionNumber(index)}
+                onClick={() => dispatch(setQuestionNumber(index))}
                 isTrue={item?.status}
               >
                 {index + 1}
@@ -49,7 +44,10 @@ const Map = ({
             </Select>
           ))}
       </MapContent>
-      <StopTest isFinished={isFinished} onClick={!isFinished && showModal}>
+      <StopTest
+        isFinished={isFinished}
+        onClick={!isFinished ? showModal : undefined}
+      >
         <InfoCircleOutlined /> Stop the Test
       </StopTest>
       {isFinished && <p>Test finished</p>}
