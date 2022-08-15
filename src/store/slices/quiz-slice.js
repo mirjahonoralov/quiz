@@ -19,9 +19,10 @@ export const fetchAsyncQuestions = createAsyncThunk(
   "questions/fetchAsyncQuestions",
   async ({ count, selectedCategory }) => {
     const res = await fetch(
-      `${BASE_URL}amount=${count}&category${selectedCategory}`
+      `${BASE_URL}amount=${count}&category=${selectedCategory}`
     );
     const data = await res.json();
+    console.log(data.results, "data.results");
     return data.results;
   }
 );

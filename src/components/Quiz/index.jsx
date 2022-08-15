@@ -56,7 +56,7 @@ const Quiz = () => {
           <QuestionText>{currentQuestion?.question}</QuestionText>
           <Answers>
             {currentQuestion?.answers.map((item, id) => (
-              <Answer id={id} item={item} />
+              <Answer id={id} item={item} key={id} />
             ))}
           </Answers>
         </Card>

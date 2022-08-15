@@ -16,7 +16,6 @@ const Answer = ({ id, item }) => {
         dispatch(setSelectedAnswer({ id, option: item }))
       }
       selected={currentQuestion.selectedAnswer?.option === item}
-      key={id}
       status={
         ((currentQuestion.selectedAnswer?.option === item &&
           currentQuestion.checked) ||
