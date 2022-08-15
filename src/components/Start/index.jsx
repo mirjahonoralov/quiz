@@ -16,7 +16,6 @@ const Start = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [count, setCount] = useState(10);
   const handleChange = (value) => setSelectedCategory(value);
-  console.log(selectedCategory, "selectedCategory");
   useEffect(() => {
     if (categories.length) setSelectedCategory(categories?.[0]?.id);
   }, [categories]);

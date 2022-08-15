@@ -22,7 +22,6 @@ export const fetchAsyncQuestions = createAsyncThunk(
       `${BASE_URL}amount=${count}&category=${selectedCategory}`
     );
     const data = await res.json();
-    console.log(data.results, "data.results");
     return data.results;
   }
 );
